@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recomendacion index{% endblock %}
+
+{% block body %}
+    <h1>Recomendacion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Estudiante</th>
+                <th>Cantidad</th>
+                <th>Desempeno</th>
+                <th>Cualidades</th>
+                <th>Recomendacion</th>
+                <th>Otros</th>
+                <th>CreatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recomendacion in recomendacions %}
+            <tr>
+                <td>{{ recomendacion.id }}</td>
+                <td>{{ recomendacion.estudiante ? 'Yes' : 'No' }}</td>
+                <td>{{ recomendacion.cantidad }}</td>
+                <td>{{ recomendacion.desempeno }}</td>
+                <td>{{ recomendacion.cualidades }}</td>
+                <td>{{ recomendacion.recomendacion }}</td>
+                <td>{{ recomendacion.otros }}</td>
+                <td>{{ recomendacion.createdAt ? recomendacion.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('recomendacion_show', {'id': recomendacion.id}) }}">show</a>
+                    <a href="{{ path('recomendacion_edit', {'id': recomendacion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('recomendacion_new') }}">Create new</a>
+{% endblock %}

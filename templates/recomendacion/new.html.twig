@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recomendacion{% endblock %}
+
+{% block body %}
+
+    <div class="mt-5">
+        <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
+        <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>
+    </div>
+
+    <h2 class="my-4">Recomendacion</h2>
+    <p class="lead my-4">Estimado/a profesor {{ registro.profesor|title }}</p>
+    <div class="row mb-4">
+        <div class="col-12 col-lg-8">
+            <p>El taller "Euclides y Hilbert" es un evento académico en las áreas de geometría euclidiana y matemáticas discretas, dirigido a estudiantes de la segunda mitad de la licenciatura.
+                <strong>{{ registro.nombre}} {{ registro.apellidos }}</strong> lo(a) ha sugerido como referencia, por lo que le solicitamos conteste las siguientes preguntas:</p>
+        </div>
+    </div>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+    {{ include('recomendacion/_form.html.twig') }}
+
+{% endblock %}

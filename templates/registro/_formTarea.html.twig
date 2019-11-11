@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+
+
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                 <div class="card">
+                    <div class="card-header">
+                        <strong>Tarea</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <div class="form-group">
+                                    {{ form_label(form.tareaFile, 'Archivo PDF con la tarea') }}
+                                    {{ form_errors(form.tareaFile) }}
+                                    {{ form_widget(form.tareaFile) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                <button class="btn btn-outline-primary mt-4">{{ button_label|default('Enviar') }}</button>
+            </div>
+        </div>
+
+    {{ form_widget(form) }}
+{{ form_end(form) }}

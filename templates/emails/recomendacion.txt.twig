@@ -1,0 +1,19 @@
+Taller "Euclides y Hilbert"
+
+{{ registro.profesor }},
+
+{% if registro.sexo == 'F' %}La{%  else %}EL{% endif %} estudiante {{ registro.nombre }} {{ registro.apellidos }} ha
+solicitado participar en el evento académico "Taller Euclides y Hilbert", y lo(a) ha sugerido a usted como referencia.
+
+Le pedimos tome unos minutos para responder las preguntas en la siguiente liga, y de este modo nos ayude en la selección
+de los estudiantes que serán aceptados para participar en nuestro evento.
+
+https://dev.matmor.unam.mx/teyh-registro{{ path('recomendacion_new', {'token': registro.token}) }}
+
+Saludos cordiales.
+
+Daniel Pellicer
+Edgardo Roldán
+Comité organizador
+
+https://matmor.unam.mx/taller-euclides-hilbert-2020/

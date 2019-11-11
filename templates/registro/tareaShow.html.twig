@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block body %}
+
+    {% for label, messages in app.flashes(['success', 'warning']) %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+     <div class="mt-5">
+        <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
+        <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>
+    </div>
+
+    <h4 class="my-4 lead"><strong>{{ registro.nombre }} {{ registro.apellidos }}</strong>. Tarea</h4>
+
+    <a href="{{ vich_uploader_asset(registro, 'tareaFile' ) }}">{{ registro.tareaName }}</a>
+
+{% endblock %}
