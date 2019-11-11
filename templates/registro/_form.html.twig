@@ -1,0 +1,141 @@
+{{ form_start(form) }}
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                 <div class="card">
+                    <div class="card-header">
+                        <strong>Información Personal</strong>
+                    </div>
+                    <div class="card-body">
+                         <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.nombre, 'Nombre') }}
+                                    {{ form_errors(form.nombre) }}
+                                    {{ form_widget(form.nombre) }}
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.apellidos, 'Apellidos') }}
+                                    {{ form_errors(form.apellidos) }}
+                                    {{ form_widget(form.apellidos) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.correo, 'Correo Electrónico') }}
+                                    {{ form_errors(form.correo) }}
+                                    {{ form_widget(form.correo) }}
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.sexo, 'Sexo') }}
+                                    {{ form_errors(form.sexo) }}
+                                    {{ form_widget(form.sexo) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <div class="card">
+                    <div class="card-header">
+                        <strong>Información Académica</strong>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <div class="form-group">
+                                    {{ form_label(form.universidad, 'Universidad') }}
+                                    {{ form_errors(form.universidad) }}
+                                    {{ form_widget(form.universidad) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.semestre, 'Semestre') }}
+                                    {{ form_errors(form.semestre) }}
+                                    {{ form_widget(form.semestre) }}
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.promedio, 'Promedio') }}
+                                    {{ form_errors(form.promedio) }}
+                                    {{ form_widget(form.promedio) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <div class="form-group">
+                                    {{ form_label(form.historialFile, 'Archivo PDF Historial Académico') }}
+                                    {{ form_errors(form.historialFile) }}
+                                    {{ form_widget(form.historialFile) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <strong>Información para la beca</strong>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="my-3 alert alert-info">Nombre de profesor que lo recomienda y correo institucional del profesor</div>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                 <div class="form-group">
+                                    {{ form_label(form.profesor, 'Profesor') }}
+                                    {{ form_errors(form.profesor) }}
+                                    {{ form_widget(form.profesor) }}
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.correoProfesor, 'Correo') }}
+                                    {{ form_errors(form.correoProfesor) }}
+                                    {{ form_widget(form.correoProfesor) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-3 alert alert-info">Todos los estudiantes aceptados serán apoyados con la comida los cinco días del evento.
+                            Además se les brindará hospedaje y desayunos a todos los estudiantes aceptados que así lo
+                            soliciten. Más adelante les informaremos si también hay posibilidad de dar apoyos en
+                            transporte a Morelia.</div>
+
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="form-group">
+                                    {{ form_label(form.beca, 'Tipo de Beca') }}
+                                    {{ form_errors(form.beca) }}
+                                    {{ form_widget(form.beca) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
+                                <div class="form-group">
+                                    {{ form_label(form.restricciones, 'Restricciones alimenticias o requerimentos especiales') }}
+                                    {{ form_errors(form.restricciones) }}
+                                    {{ form_widget(form.restricciones) }}
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn  btn-outline-primary mt-4">{{ button_label|default('Enviar') }}</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    {{ form_widget(form) }}
+{{ form_end(form) }}

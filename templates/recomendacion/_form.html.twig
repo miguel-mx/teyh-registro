@@ -1,0 +1,44 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-12 col-lg-8">
+         <div class="form-group border-bottom">
+            <p>¿Ha tomado cursos con usted el/la estudiante {{ registro.nombre }} {{ registro.apellidos }}</p>
+{#            {{ form_label(form.estudiante, 'Cantidad de cursos') }}#}
+            {{ form_errors(form.estudiante) }}
+            {{ form_widget(form.estudiante) }}
+        </div>
+        <div class="form-group">
+            <p>En caso afirmativo ¿Cuántos cursos?</p>
+{#            {{ form_label(form.cantidad) }}#}
+            {{ form_errors(form.cantidad) }}
+            {{ form_widget(form.cantidad) }}
+        </div>
+        <div class="form-group">
+            <p>¿Cómo ha sido el desempeño de {{ registro.nombre }} {{ registro.apellidos }} en esos cursos?</p>
+{#            {{ form_label(form.desempeno) }}#}
+            {{ form_errors(form.desempeno) }}
+            {{ form_widget(form.desempeno) }}
+        </div>
+        <div class="form-group">
+            <p>¿Cuáles son las principales cualidades de {{ registro.nombre }} {{ registro.apellidos }} como estudiante?</p>
+{#            {{ form_label(form.cualidades) }}#}
+            {{ form_errors(form.cualidades) }}
+            {{ form_widget(form.cualidades) }}
+        </div>
+        <div class="form-group">
+            <p>¿Recomienda la asistencia de {{ registro.nombre }} {{ registro.apellidos }} al taller Euclides y Hilbert?</p>
+{#            {{ form_label(form.recomendacion) }}#}
+            {{ form_errors(form.recomendacion) }}
+            {{ form_widget(form.recomendacion) }}
+        </div>
+        <div class="form-group">
+            <p>¿Hay algún dato acerca de {{ registro.nombre }} {{ registro.apellidos }} que quiera agregar?</p>
+{#            {{ form_label(form.otros) }}#}
+            {{ form_errors(form.otros) }}
+            {{ form_widget(form.otros) }}
+        </div>
+        {{ form_widget(form) }}
+        <button class="btn btn-success my-4">{{ button_label|default('Enviar') }}</button>
+    </div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block body %}
+    <h1>Registro</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ registro.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ registro.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ registro.apellidos }}</td>
+            </tr>
+            <tr>
+                <th>Sexo</th>
+                <td>{{ registro.sexo }}</td>
+            </tr>
+            <tr>
+                <th>Correo</th>
+                <td>{{ registro.correo }}</td>
+            </tr>
+            <tr>
+                <th>Universidad</th>
+                <td>{{ registro.universidad }}</td>
+            </tr>
+            <tr>
+                <th>Semestre</th>
+                <td>{{ registro.semestre }}</td>
+            </tr>
+            <tr>
+                <th>Promedio</th>
+                <td>{{ registro.promedio }}</td>
+            </tr>
+            <tr>
+                <th>Historial</th>
+                <td><a href="{{ vich_uploader_asset(registro, 'historialFile' ) }}">{{ registro.historialName }}</a><td>
+            </tr>
+            {% if registro.tareaName %}
+            <tr>
+                <th>Tarea</th>
+                <td><a href="{{ vich_uploader_asset(registro, 'tareaFile' ) }}">{{ registro.tareaName }}</a><td>
+            </tr>
+            {% endif %}
+            {% if registro.recomendacion %}
+                <tr>
+                    <th>Recomendación</th>
+                    <td><a href="{{ path('recomendacion_new', { 'token': registro.token }) }}">Ver recomendación</a><td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>Profesor</th>
+                <td>{{ registro.profesor }}</td>
+            </tr>
+            <tr>
+                <th>CorreoProfesor</th>
+                <td>{{ registro.correoProfesor }}</td>
+            </tr>
+            <tr>
+                <th>Beca</th>
+                <td>{{ registro.beca }}</td>
+            </tr>
+            <tr>
+                <th>Restricciones</th>
+                <td>{{ registro.restricciones }}</td>
+            </tr>
+            <tr>
+                <th>Token</th>
+                <td>{{ registro.token }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ registro.slug }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ registro.created ? registro.created|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

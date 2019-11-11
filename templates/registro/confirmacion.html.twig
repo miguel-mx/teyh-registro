@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmación de Registro{% endblock %}
+
+{% block body %}
+
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="mt-5">
+        <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
+        <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>
+    </div>
+    <h4 class="my-4">Confirmación de Registro</h4>
+
+
+    <p class="lead my-4">{{ registro.nombre }} {{ registro.apellidos }}, hemos recibido tu información para el registro del taller "Euclides y Hilbert".</p>
+
+    <p class="lead my-4">Te recordamos que para completar tu registro deberás enviarnos la lista de ejercicios resuelta que se publicará el 2 de diciembre.
+        Posteriormente enviaremos un correo electrónico con una liga a través de la cual podrás subir al los ejercicios resueltos en formato .pdf.</p>
+
+    <a class="my-4" href="http://matmor.unam.mx/taller-euclides-hilbert-2020/">Regresar al sitio web del taller</a>
+
+{% endblock %}

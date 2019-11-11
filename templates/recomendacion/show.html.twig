@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recomendacion{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-12 col-lg-8">
+
+            <div class="mt-5">
+                <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
+                <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>
+            </div>
+            <h2 class="my-5">Recomendacion para {{ registro.nombre }} {{ registro.apellidos }}</h2>
+            <p class="lead">Profesor {{ registro.profesor }} - {{ registro.correoProfesor }}</p>
+
+            <div class="lead mt-4">¿Ha tomado cursos con usted el/la estudiante {{ registro.nombre }} {{ registro.apellidos }}?</div>
+            <div class="card">
+                <div class="card-body">
+                    {{ recomendacion.estudiante }}
+                </div>
+            </div>
+
+            {% if recomendacion.estudiante == 'Si' %}
+                <div class="lead mt-4">¿Cuántos cursos?</div>
+                <div class="card">
+                    <div class="card-body">
+                        {{ recomendacion.cantidad }}
+                    </div>
+                </div>
+                <div class="lead mt-4">¿Cómo ha sido el desempeño de {{ registro.nombre }} {{ registro.apellidos }} en esos cursos?</div>
+                <div class="card">
+                    <div class="card-body">
+                        {{ recomendacion.desempeno }}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="lead mt-4">¿Cuáles son las principales cualidades de {{ registro.nombre }} {{ registro.apellidos }} como estudiante?</div>
+            <div class="card">
+                <div class="card-body">
+                    {{ recomendacion.cualidades }}
+                </div>
+            </div>
+            <div class="lead mt-4">¿Recomienda la asistencia de {{ registro.nombre }} {{ registro.apellidos }} al taller Euclides y Hilbert?</div>
+            <div class="card">
+                <div class="card-body">
+                    {{ recomendacion.recomendacion }}
+                </div>
+            </div>
+            <div class="lead mt-4">¿Hay algún dato acerca de {{ registro.nombre }} {{ registro.apellidos }} que quiera agregar?</div>
+            <div class="card mb-5">
+                <div class="card-body">
+                    {{ recomendacion.otros }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

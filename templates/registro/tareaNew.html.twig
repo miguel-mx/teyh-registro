@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tarea{% endblock %}
+
+{% block body %}
+
+    <div class="mt-5">
+        <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
+        <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>
+    </div>
+    <h4 class="my-4">Tarea</h4>
+
+    <p class="lead my-4"><strong>{{ registro.nombre }} {{ registro.apellidos }}</strong>. Aquí puedes subir el archivo con las reapuestas a la tarea en formato PDF.</p>
+
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+    {{ include('registro/_formTarea.html.twig') }}
+
+{% endblock %}
