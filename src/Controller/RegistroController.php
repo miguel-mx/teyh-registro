@@ -22,6 +22,9 @@ class RegistroController extends Controller
      */
     public function index(RegistroRepository $registroRepository): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('registro/index.html.twig', [
             'registros' => $registroRepository->findAll(),
         ]);
@@ -32,6 +35,7 @@ class RegistroController extends Controller
      */
     public function new(Request $request, \Swift_Mailer $mailer): Response
     {
+
         $registro = new Registro();
         $form = $this->createForm(RegistroType::class, $registro);
         $form->handleRequest($request);
