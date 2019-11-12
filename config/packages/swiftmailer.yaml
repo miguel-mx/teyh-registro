@@ -1,21 +1,7 @@
-#swiftmailer:
-#    url: '%env(MAILER_URL)%'
-##    spool: { type: 'memory' }
-#    stream_options:
-#        ssl:
-#            verify_peer: false
-#            verify_peer_name: false
-#            allow_self_signed: true
-
 swiftmailer:
     transport: smtp
-<<<<<<< HEAD
-    host: churipo.matmor.unam.mx
-    username: swmail 
-=======
     host:      churipo.matmor.unam.mx
     username: swmail
->>>>>>> f01cecef352a991757e79332b0934996440f281a
     password: 
     encryption: tls
     port: 465
@@ -24,8 +10,4 @@ swiftmailer:
         ssl:
             verify_peer: false
             verify_peer_name: false
-<<<<<<< HEAD
             allow_self_signed: true
-=======
-            allow_self_signed: true
->>>>>>> f01cecef352a991757e79332b0934996440f281a
