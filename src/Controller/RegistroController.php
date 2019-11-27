@@ -20,10 +20,11 @@ class RegistroController extends Controller
     /**
      * @Route("/", name="registro_index", methods={"GET"})
      */
-    public function index(RegistroRepository $registroRepository): Response
+    public function index(RegistroRepository $registroRepository, Request $request): Response
     {
-
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+//        $this->addFlash('success','Your changes were saved!');
 
         return $this->render('registro/index.html.twig', [
             'registros' => $registroRepository->findAll(),
@@ -84,6 +85,8 @@ class RegistroController extends Controller
                 'Te registraste con éxito!'
             );
 
+            $this->addFlash('success','Se registraron con éxito tus datos!');
+
             return $this->redirectToRoute('registro_confirmacion', ['slug' => $registro->getSlug()]);
         }
 
@@ -94,10 +97,13 @@ class RegistroController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="registro_show", methods={"GET"})
+     * @Route("/{slug}", name="registro_show", methods={"GET"})
      */
     public function show(Registro $registro): Response
     {
+
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
         return $this->render('registro/show.html.twig', [
             'registro' => $registro,
         ]);
@@ -129,11 +135,7 @@ class RegistroController extends Controller
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->flush();
 
-                // add flash msg
-                $this->addFlash(
-                    'success',
-                    'Tarea guardada!'
-                );
+                $this->addFlash('success','Se recibió con éxito la tarea!');
 
                 return $this->render('registro/tareaShow.html.twig', [
                     'registro' => $registro,

@@ -3,16 +3,6 @@
 {% block title %}Confirmación de Registro{% endblock %}
 
 {% block body %}
-
-
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-
     <div class="mt-5">
         <img class="img" src="{{ asset('img/dib1.png') }}" alt="Figura" height="60px">
         <h2 class="d-inline ml-4"> Taller Euclides & Hilbert</h2>

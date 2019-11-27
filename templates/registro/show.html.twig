@@ -3,87 +3,123 @@
 {% block title %}Registro{% endblock %}
 
 {% block body %}
-    <h1>Registro</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ registro.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ registro.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Apellidos</th>
-                <td>{{ registro.apellidos }}</td>
-            </tr>
-            <tr>
-                <th>Sexo</th>
-                <td>{{ registro.sexo }}</td>
-            </tr>
-            <tr>
-                <th>Correo</th>
-                <td>{{ registro.correo }}</td>
-            </tr>
-            <tr>
-                <th>Universidad</th>
-                <td>{{ registro.universidad }}</td>
-            </tr>
-            <tr>
-                <th>Semestre</th>
-                <td>{{ registro.semestre }}</td>
-            </tr>
-            <tr>
-                <th>Promedio</th>
-                <td>{{ registro.promedio }}</td>
-            </tr>
-            <tr>
-                <th>Historial</th>
-                <td><a href="{{ vich_uploader_asset(registro, 'historialFile' ) }}">{{ registro.historialName }}</a><td>
-            </tr>
-            {% if registro.tareaName %}
-            <tr>
-                <th>Tarea</th>
-                <td><a href="{{ vich_uploader_asset(registro, 'tareaFile' ) }}">{{ registro.tareaName }}</a><td>
-            </tr>
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="mt-4"><a href="{{ path('registro_index') }}"><<<  Regresar</a></div>
+
+            <h2 class="mt-4">{{ registro.nombre|title }} {{ registro.apellidos|title }}</h2>
+            <h4 class="text-secondary mb-5">{{ registro.correo }}</h4>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Información Académica</h5>
+                </div>
+                <div class="card body">
+                    <div class="container">
+                        <div class="row my-3">
+                            <div class="col-2 font-weight-bold">Universidad</div>
+                            <div class="col-10">{{ registro.universidad }}</div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-2 font-weight-bold">Semestre</div>
+                            <div class="col-3">{{ registro.semestre }}</div>
+                            <div class="col-2 font-weight-bold">Promedio</div>
+                            <div class="col-5">{{ registro.promedio }}</div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-2 font-weight-bold">Historial</div>
+                            <div class="col-10">
+                                <a href="{{ vich_uploader_asset(registro, 'historialFile' ) }}">{{ registro.historialName }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             {% if registro.tareaName %}
+              <div class="container">
+                    <div class="row my-3">
+                        <div class="col-2 font-weight-bold">Tarea</div>
+                        <div class="col-10"><a href="{{ vich_uploader_asset(registro, 'tareaFile' ) }}">{{ registro.tareaName }}</a></div>
+                    </div>
+              </div>
             {% endif %}
-            {% if registro.recomendacion %}
-                <tr>
-                    <th>Recomendación</th>
-                    <td><a href="{{ path('recomendacion_new', { 'token': registro.token }) }}">Ver recomendación</a><td>
-                </tr>
-            {% endif %}
-            <tr>
-                <th>Profesor</th>
-                <td>{{ registro.profesor }}</td>
-            </tr>
-            <tr>
-                <th>CorreoProfesor</th>
-                <td>{{ registro.correoProfesor }}</td>
-            </tr>
-            <tr>
-                <th>Beca</th>
-                <td>{{ registro.beca }}</td>
-            </tr>
-            <tr>
-                <th>Restricciones</th>
-                <td>{{ registro.restricciones }}</td>
-            </tr>
-            <tr>
-                <th>Token</th>
-                <td>{{ registro.token }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ registro.slug }}</td>
-            </tr>
-            <tr>
-                <th>Created</th>
-                <td>{{ registro.created ? registro.created|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+
+            <div class="card my-4">
+                <div class="card-header">
+                    <h5>Recomendación</h5>
+                </div>
+                <div class="card body">
+                     <div class="container">
+                        <div class="row my-3">
+                            <div class="col-2 font-weight-bold">Profesor</div>
+                            <div class="col-10">{{ registro.profesor }} <span class="text-secondary"> - {{ registro.correoProfesor }}</span></div>
+                        </div>
+                         {% if registro.recomendacion %}
+                             <div class="row my-3">
+                                 <div class="col-2 font-weight-bold">Recomendacion</div>
+                                 <div class="col-10"><a href="{{ path('recomendacion_new', { 'token': registro.token }) }}">Ver recomendación</a></div>
+                             </div>
+                         {% endif %}
+                     </div>
+                </div>
+            </div>
+
+            <div class="card my-4">
+                <div class="card-header">
+                    <h5>Beca</h5>
+                </div>
+                <div class="card body">
+                     <div class="container">
+                        <div class="row my-3">
+                            <div class="col-2 font-weight-bold">Tipo</div>
+                            <div class="col-10">{{ registro.beca }}</div>
+                        </div>
+                         <div class="row my-3">
+                             <div class="col-2 font-weight-bold">Comentarios</div>
+                             <div class="col-10">{{ registro.restricciones }}</div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#    <table class="table">#}
+{#        <tbody>#}
+
+
+
+{#            <tr>#}
+{#                <th>Historial</th>#}
+{#                <td><a href="{{ vich_uploader_asset(registro, 'historialFile' ) }}">{{ registro.historialName }}</a><td>#}
+{#            </tr>#}
+
+{#            {% if registro.recomendacion %}#}
+{#                <tr>#}
+{#                    <th>Recomendación</th>#}
+{#                    <td><a href="{{ path('recomendacion_new', { 'token': registro.token }) }}">Ver recomendación</a><td>#}
+{#                </tr>#}
+{#            {% endif %}#}
+{#            <tr>#}
+{#                <th>Profesor</th>#}
+{#                <td>{{ registro.profesor }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>CorreoProfesor</th>#}
+{#                <td>{{ registro.correoProfesor }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Beca</th>#}
+{#                <td>{{ registro.beca }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Restricciones</th>#}
+{#                <td>{{ registro.restricciones }}</td>#}
+{#            </tr>#}
+
+{#        </tbody>#}
+{#    </table>#}
 
 {% endblock %}
