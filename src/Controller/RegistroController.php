@@ -52,7 +52,7 @@ class RegistroController extends Controller
             $message = (new \Swift_Message('Confirmación Registro'))
                 ->setFrom('eyh@matmor.unam.mx')
                 ->setTo($registro->getCorreo())
-                ->setBcc('miguel@matmor.unam.mx')
+                ->setBcc('eyh@matmor.unam.mx')
                 ->setBody(
                     $this->renderView(
                     // templates/emails/registration.html.twig
@@ -68,7 +68,7 @@ class RegistroController extends Controller
             $recomendacion = (new \Swift_Message('Solicitud Recomendacion'))
                 ->setFrom('eyh@matmor.unam.mx')
                 ->setTo($registro->getCorreoProfesor())
-                ->setBcc('miguel@matmor.unam.mx')
+                ->setBcc('eyh@matmor.unam.mx')
                 ->setBody(
                     $this->renderView(
                         'emails/recomendacion.txt.twig',
