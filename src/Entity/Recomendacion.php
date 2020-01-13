@@ -28,7 +28,7 @@ class Recomendacion
     private $cantidad;
 
     /**
-     * @ORM\Column(type="string", length=80, nullable=true)
+     * @ORM\Column(type="string", length=250, nullable=true)
      */
     private $desempeno;
 

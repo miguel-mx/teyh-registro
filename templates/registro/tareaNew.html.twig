@@ -10,7 +10,7 @@
     </div>
     <h4 class="my-4">Tarea</h4>
 
-    <p class="lead my-4"><strong>{{ registro.nombre }} {{ registro.apellidos }}</strong>. Aquí puedes subir el archivo con las reapuestas a la tarea en formato PDF.</p>
+    <p class="lead my-4"><strong>{{ registro.nombre|title }}</strong>. Aquí puedes subir el archivo con las respuestas a la tarea en formato PDF.</p>
 
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
