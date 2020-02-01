@@ -37,6 +37,12 @@ class RegistroController extends Controller
     public function new(Request $request, \Swift_Mailer $mailer): Response
     {
 
+        $now = new \DateTime();
+        $deadline = new \DateTime('2020-02-01');
+        if($now >= $deadline)
+            return $this->render('registro/closed.html.twig');
+
+
         $registro = new Registro();
         $form = $this->createForm(RegistroType::class, $registro);
         $form->handleRequest($request);
