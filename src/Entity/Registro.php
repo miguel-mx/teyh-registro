@@ -42,10 +42,6 @@ class Registro
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\Email(
-     *     message = "El correo '{{ value }}' no es válido.",
-     *     checkMX = true
-     * )
      */
     private $correo;
 
@@ -75,10 +71,6 @@ class Registro
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\Email(
-     *     message = "El correo '{{ value }}' no es válido.",
-     *     checkMX = true
-     * )
      */
     private $correoProfesor;
 
